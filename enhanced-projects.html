@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Yash Sharma</title>
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0B1426 0%, #1F2937 100%);
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+        
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(45deg, #0B1426, #1F2937, #0B1426);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00D4FF 0%, #8B5CF6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.8)); }
+        }
+        
+        .glass-card {
+            background: rgba(31, 41, 55, 0.3);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(0, 212, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .project-card {
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) rotateY(10deg) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(0, 212, 255, 0.4);
+        }
+        
+        .nav-scrolled {
+            background: rgba(11, 20, 38, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* exactly 3 columns */
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+            }
+        }
+
+        @media (max-width: 640px) {
+            .project-grid {
+                grid-template-columns: 1fr; /* 1 column for small screens */
+            }
+        }
+
+        
+        .project-filter {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .project-filter.active {
+            background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .project-filter:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-item {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-item.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+        
+        .achievement-badge {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .achievement-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s linear infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #00D4FF;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            color: #00D4FF;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #00D4FF;
+            color: #0B1426;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: rgba(31, 41, 55, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .project-showcase {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(0, 212, 255, 0.1) 50%, transparent 70%);
+            animation: projectShine 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes projectShine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            animation: glitch-1 0.5s infinite;
+            color: #00D4FF;
+            z-index: -1;
+        }
+        
+        .glitch::after {
+            animation: glitch-2 0.5s infinite;
+            color: #8B5CF6;
+            z-index: -2;
+        }
+        
+        @keyframes glitch-1 {
+            0%, 14%, 15%, 49%, 50%, 99%, 100% { transform: translate(0); }
+            15%, 49% { transform: translate(-2px, 2px); }
+        }
+        
+        @keyframes glitch-2 {
+            0%, 20%, 21%, 62%, 63%, 99%, 100% { transform: translate(0); }
+            21%, 62% { transform: translate(2px, -2px); }
+        }
+        
+        .section-divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00D4FF, #8B5CF6, transparent);
+            margin: 4rem 0;
+            animation: dividerGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes dividerGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="enhanced-index.html" class="text-2xl font-bold gradient-text glitch" data-text="YS">YS</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="enhanced-index.html" class="hover:text-cyan-400 transition-colors floating">Home</a>
+                <a href="enhanced-about.html" class="hover:text-cyan-400 transition-colors floating">About</a>
+                <a href="enhanced-projects.html" class="text-cyan-400 floating">Projects</a>
+                <a href="enhanced-contact.html" class="hover:text-cyan-400 transition-colors floating">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-6 glitch" data-text="My Projects">My Projects</h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-12">
+                Explore my innovative AI/ML solutions, from award-winning healthcare applications to cutting-edge NLP systems
+            </p>
+            
+            <!-- Project Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="project-filter active px-6 py-3 rounded-full border border-gray-600 hover:border-cyan-500 transition-all" data-filter="all">
+                    All Projects
+                </button>
+                <button class="project-filter px-6 py-3 rounded-full border border-gray-600 hover:border-cyan-500 transition-all" data-filter="healthcare">
+                    Healthcare AI
+                </button>
+                <button class="project-filter px-6 py-3 rounded-full border border-gray-600 hover:border-cyan-500 transition-all" data-filter="nlp">
+                    NLP
+                </button>
+                <button class="project-filter px-6 py-3 rounded-full border border-gray-600 hover:border-cyan-500 transition-all" data-filter="cv">
+                    Computer Vision
+                </button>
+                <button class="project-filter px-6 py-3 rounded-full border border-gray-600 hover:border-cyan-500 transition-all" data-filter="analytics">
+                    Data Analytics
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Grid -->
+    <section class="py-20 px-6 project-showcase">
+        <div class="max-w-7xl mx-auto">
+            <div class="project-grid" id="projects-grid">
+                
+                <!-- AI Healthcare Assistant -->
+                <div class="project-item" data-category="healthcare">
+                    <div class="project-card glass-card p-6 h-full">
+                        <div class="relative mb-4">
+                            <img src="resources/project-healthcare.jpg" alt="AI Healthcare Assistant" class="w-full h-48 object-cover rounded-lg">
+                            <div class="absolute top-4 right-4 achievement-badge bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                                🏆 Award Winner
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-cyan-400">AI Healthcare Assistant</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Revolutionary healthcare AI system that assists medical professionals in patient diagnosis and treatment recommendations. 
+                            This project earned 2nd place at TechSaksham National Showcase 2025, recognized by Microsoft & SAP among top 16 national AI teams.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <h4 class="text-lg font-semibold mb-2 text-white">Key Features:</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Intelligent symptom analysis and diagnosis support</li>
+                                <li>• Treatment recommendation engine</li>
+                                <li>• Patient data integration and analysis</li>
+                                <li>• Real-time health monitoring alerts</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-cyan-500 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">Healthcare AI</span>
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Flask</span>
+                            <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">React</span>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn-primary flex-1" onclick="openProjectModal('healthcare')">
+                                🚀 Live Demo
+                            </button>
+                            <button class="btn-secondary flex-1" onclick="showComingSoon()">
+                                📄 Case Study
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NLP Text Analysis Pipeline -->
+                <div class="project-item" data-category="nlp">
+                    <div class="project-card glass-card p-6 h-full">
+                        <img src="resources/project-nlp.jpg" alt="NLP Text Analysis" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold mb-3 text-purple-400">NLP Text Analysis Pipeline</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Advanced Natural Language Processing pipeline utilizing state-of-the-art BERT models for comprehensive text analysis. 
+                            The system performs text classification, entity recognition, sentiment analysis, and generates interactive visualizations.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <h4 class="text-lg font-semibold mb-2 text-white">Capabilities:</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Multi-class text classification with 95%+ accuracy</li>
+                                <li>• Named entity recognition and extraction</li>
+                                <li>• Real-time sentiment analysis</li>
+                                <li>• Interactive dashboard with Matplotlib</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">BERT</span>
+                            <span class="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm">Transformers</span>
+                            <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm">Pandas</span>
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">NLTK</span>
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm">Matplotlib</span>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn-primary flex-1" onclick="showComingSoon()">
+                                🔍 View Project
+                            </button>
+                            <button class="btn-secondary flex-1" onclick="showComingSoon()">
+                                📚 Documentation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Computer Vision System -->
+                <div class="project-item" data-category="cv">
+                    <div class="project-card glass-card p-6 h-full">
+                        <img src="resources/project-cv.jpg" alt="Computer Vision System" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold mb-3 text-green-400">Computer Vision System</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Comprehensive computer vision solution using OpenCV for advanced image processing and analysis. 
+                            The system includes real-time object detection, facial recognition, and image enhancement capabilities 
+                            for various industrial applications.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <h4 class="text-lg font-semibold mb-2 text-white">Features:</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Real-time object detection and tracking</li>
+                                <li>• Advanced facial recognition system</li>
+                                <li>• Image preprocessing and enhancement</li>
+                                <li>• Integration with hardware prototypes</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">OpenCV</span>
+                            <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">Computer Vision</span>
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">Image Processing</span>
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">NumPy</span>
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">SciPy</span>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn-primary flex-1" onclick="showComingSoon()">
+                                👁️ Try It Now
+                            </button>
+                            <button class="btn-secondary flex-1" onclick="showComingSoon()">
+                                💻 Source Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Analytics Dashboard -->
+                <div class="project-item" data-category="analytics">
+                    <div class="project-card glass-card p-6 h-full">
+                        <img src="resources/project-analytics.jpg" alt="Data Analytics Dashboard" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-bold mb-3 text-yellow-400">Government Threat Detection System</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Advanced data analytics platform designed for government threat detection and policy risk forecasting. 
+                            Utilizes machine learning algorithms to process large datasets and provide actionable insights for 
+                            security and policy-making decisions.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <h4 class="text-lg font-semibold mb-2 text-white">System Capabilities:</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Real-time threat pattern analysis</li>
+                                <li>• Policy risk assessment and forecasting</li>
+                                <li>• Interactive data visualization dashboards</li>
+                                <li>• Automated alert and reporting system</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm">Data Science</span>
+                            <span class="bg-teal-500 text-white px-3 py-1 rounded-full text-sm">Matplotlib</span>
+                            <span class="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm">Analytics</span>
+                            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">Security</span>
+                            <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm">Forecasting</span>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn-primary flex-1" onclick="showComingSoon()">
+                                📊 View Dashboard
+                            </button>
+                            <button class="btn-secondary flex-1" onclick="showComingSoon()">
+                                🔍 Technical Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LabVIEW Data Integration -->
+                <div class="project-item" data-category="analytics">
+                    <div class="project-card glass-card p-6 h-full">
+                        <div class="w-full h-48 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg mb-4 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-4xl mb-2">🔧</div>
+                                <div class="text-white font-bold">LabVIEW Integration</div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-400">LabVIEW Data Integration Pipeline</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Sophisticated data integration system that converts and integrates LabVIEW-generated data into 
+                            machine learning workflows. This project bridges the gap between hardware data acquisition and 
+                            modern ML processing pipelines.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <h4 class="text-lg font-semibold mb-2 text-white">Integration Features:</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Automated LabVIEW data conversion</li>
+                                <li>• Real-time data preprocessing pipelines</li>
+                                <li>• Seamless ML workflow integration</li>
+                                <li>• Hardware prototype validation support</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">LabVIEW</span>
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">Data Pipelines</span>
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm">Hardware Integration</span>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn-primary flex-1" onclick="showComingSoon()">
+                                🔧 View System
+                            </button>
+                            <button class="btn-secondary flex-1" onclick="showComingSoon()">
+                                🏗️ Architecture
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BERT Research Implementation -->
+                <div class="project-item" data-category="nlp">
+                    <div class="project-card glass-card p-6 h-full">
+                        <div class="w-full h-48 bg-gradient-to-r from-purple-700 to-pink-800 rounded-lg mb-4 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-4xl mb-2">🧠</div>
+                                <div class="text-white font-bold">BERT Research</div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-400">BERT Model Research & Implementation</h3>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Deep research into BERT (Bidirectional Encoder Representations from Transformers) architecture and 
+                            its applications in various NLP tasks. This project involved implementing custom BERT models for 
+                            specialized domains and optimizing performance for specific use cases.
+                        </p>
+                        
+                        <div class="mb-4">
+                            <h4 class="text-lg font-semibold mb-2 text-white">Research Areas:</h4>
+                            <ul class="text-sm text-gray-400 space-y-1">
+                                <li>• Custom BERT model fine-tuning</li>
+                                <li>• Domain-specific language modeling</li>
+                                <li>• Performance optimization techniques</li>
+                                <li>• Comparative analysis with other architectures</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">BERT</span>
+                            <span class="bg-pink-500 text-white px-3 py-1 rounded-full text-sm">Transformers</span>
+                            <span class="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm">PyTorch</span>
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Research</span>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn-primary flex-1" onclick="showComingSoon()">
+                                📄 Research Paper
+                            </button>
+                            <button class="btn-secondary flex-1" onclick="showComingSoon()">
+                                💻 Code Repository
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+    
+    <!-- Project Statistics -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold gradient-text mb-6 glitch" data-text="Project Impact">Project Impact</h2>
+                <p class="text-xl text-gray-400">Quantified results from my projects</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="glass-card p-8 text-center">
+                    <div class="text-4xl font-bold text-cyan-400 mb-2">95%</div>
+                    <div class="text-gray-300">Average Accuracy</div>
+                    <div class="text-sm text-gray-400 mt-2">Across all ML models</div>
+                </div>
+                
+                <div class="glass-card p-8 text-center">
+                    <div class="text-4xl font-bold text-purple-400 mb-2">15+</div>
+                    <div class="text-gray-300">Projects Completed</div>
+                    <div class="text-sm text-gray-400 mt-2">Including research & commercial</div>
+                </div>
+                
+                <div class="glass-card p-8 text-center">
+                    <div class="text-4xl font-bold text-green-400 mb-2">8</div>
+                    <div class="text-gray-300">Awards Won</div>
+                    <div class="text-sm text-gray-400 mt-2">National & international recognition</div>
+                </div>
+                
+                <div class="glass-card p-8 text-center">
+                    <div class="text-4xl font-bold text-yellow-400 mb-2">1000+</div>
+                    <div class="text-gray-300">Hours of R&D</div>
+                    <div class="text-sm text-gray-400 mt-2">Continuous innovation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+    
+    <!-- Call to Action -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="glass-card p-12">
+                <h2 class="text-4xl font-bold gradient-text mb-6 glitch" data-text="Interested in Collaboration?">Interested in Collaboration?</h2>
+                <p class="text-xl text-gray-400 mb-8">
+                    I'm always open to discussing new projects and opportunities. Let's create something amazing together.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="enhanced-contact.html" class="btn-primary">
+                        Start a Project
+                    </a>
+                    <a href="enhanced-about.html" class="btn-secondary">
+                        Learn More About Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800 relative overflow-hidden">
+        <div class="footer-wave"></div>
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="social-icon" title="LinkedIn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon" title="GitHub">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="text-gray-400">© 2025 Yash Sharma. All rights reserved. | Crafted with ❤️ and AI</p>
+        </div>
+    </footer>
+    
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-cyan-400">Project Details</h3>
+                <button onclick="closeProjectModal()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            <div id="modal-body">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+        
+        // Project filtering functionality
+        const filterBtns = document.querySelectorAll('.project-filter');
+        const projectItems = document.querySelectorAll('.project-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.classList.remove('hidden');
+                        
+                        // Add animation
+                        anime({
+                            targets: item,
+                            opacity: [0, 1],
+                            scale: [0.8, 1],
+                            duration: 300,
+                            easing: 'easeOutCubic'
+                        });
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+                
+                // Add animation effect to button
+                anime({
+                    targets: btn,
+                    scale: [1, 1.1, 1],
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            });
+        });
+        
+        // Project Modal Functions
+        function openProjectModal(projectId) {
+            const modal = document.getElementById('project-modal');
+            const modalBody = document.getElementById('modal-body');
+            
+            // Sample project details (in real implementation, this would be dynamic)
+            const projectDetails = {
+                healthcare: {
+                    title: 'AI Healthcare Assistant',
+                    description: 'A comprehensive AI-powered healthcare system that assists medical professionals in diagnosis and treatment recommendations.',
+                    features: [
+                        'Intelligent symptom analysis',
+                        'Treatment recommendation engine',
+                        'Patient data integration',
+                        'Real-time monitoring alerts'
+                    ],
+                    tech: ['Python', 'TensorFlow', 'React', 'Flask', 'PostgreSQL'],
+                    achievements: [
+                        '2nd Place at TechSaksham National Showcase 2025',
+                        'Recognized by Microsoft & SAP',
+                        'Top 16 National AI Teams'
+                    ]
+                }
+            };
+            
+            const project = projectDetails[projectId];
+            if (project) {
+                modalBody.innerHTML = `
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-white mb-3">${project.title}</h4>
+                            <p class="text-gray-300">${project.description}</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="text-lg font-semibold text-cyan-400 mb-2">Key Features</h5>
+                            <ul class="text-gray-300 space-y-1">
+                                ${project.features.map(feature => `<li>• ${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h5 class="text-lg font-semibold text-purple-400 mb-2">Technology Stack</h5>
+                            <div class="flex flex-wrap gap-2">
+                                ${project.tech.map(tech => `<span class="bg-gray-600 text-white px-3 py-1 rounded-full text-sm">${tech}</span>`).join('')}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h5 class="text-lg font-semibold text-green-400 mb-2">Achievements</h5>
+                            <ul class="text-gray-300 space-y-1">
+                                ${project.achievements.map(achievement => `<li>🏆 ${achievement}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="flex gap-3 mt-6">
+                            <button class="btn-primary" onclick="showComingSoon()">View Live Demo</button>
+                            <button class="btn-secondary" onclick="showComingSoon()">View Code</button>
+                        </div>
+                    </div>
+                `;
+                
+                modal.classList.add('active');
+            }
+        }
+        
+        function closeProjectModal() {
+            document.getElementById('project-modal').classList.remove('active');
+        }
+        
+        function showComingSoon() {
+            // Create a more elegant notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-3 rounded-lg shadow-lg z-50';
+            notification.innerHTML = '🚀 Coming Soon! This feature is under development.';
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            anime({
+                targets: notification,
+                translateX: [300, 0],
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutCubic'
+            });
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                anime({
+                    targets: notification,
+                    translateX: [0, 300],
+                    opacity: [1, 0],
+                    duration: 300,
+                    easing: 'easeInCubic',
+                    complete: () => notification.remove()
+                });
+            }, 3000);
+        }
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Project card hover effects with anime.js
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                anime({
+                    targets: card,
+                    scale: 1.02,
+                    rotateY: 5,
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                anime({
+                    targets: card,
+                    scale: 1,
+                    rotateY: 0,
+                    duration: 300,
+                    easing: 'easeOutCubic'
+                });
+            });
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('project-modal').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                closeProjectModal();
+            }
+        });
+        
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeProjectModal();
+            }
+        });
+    </script>
+</body>
+</html>
