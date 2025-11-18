@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - Yash Sharma</title>
 
@@ -11,24 +11,6 @@
 
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-      <nav class="fixed top-4 left-0 right-0 z-50 transition-all duration-300 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold gradient-text glitch" data-text="YS">Welcome ! </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="hover:text-cyan-400 transition-colors floating">Home</a>
-                <a href="enhanced-about.html    " class="hover:text-cyan-400 transition-colors floating">About</a>
-                <a href="enhanced-projects.html" class="hover:text-cyan-400 transition-colors floating">Projects</a>
-                <a href="enhanced-contact.html" class="hover:text-cyan-400 transition-colors floating">Contact</a>
-            </div>
-            <div class="md:hidden">
-                <button class="text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
 
   <style>
     * { font-family: 'Inter', sans-serif; }
@@ -90,10 +72,33 @@
       background: rgba(16,185,129,0.95); padding: 2rem 3rem; border-radius: 20px;
       text-align: center; z-index: 9999; display: none;
     }
+
+    /* ----------  RESPONSIVE PATCH (design untouched)  ---------- */
+    * { max-width: 100%; box-sizing: border-box; }
+    img, video, canvas, iframe, svg { max-width: 100%; height: auto; display: block; }
+
+    /* Fluid type that shrinks on small screens */
+    html { font-size: 16px; }
+    @media (max-width: 1200px) { html { font-size: 15px; } }
+    @media (max-width: 900px)  { html { font-size: 14px; } }
+    @media (max-width: 600px)  { html { font-size: 13px; } }
+
+    /* Hero text scaling */
+    .text-5xl { font-size: clamp(2.2rem, 5vw + 1rem, 3.5rem); }
+    .text-7xl { font-size: clamp(2.8rem, 6vw + 1.2rem, 4.5rem); }
+    .text-xl  { font-size: clamp(1rem, 2.5vw, 1.25rem); }
+
+    /* Contact grid: single column on phones */
+    @media (max-width: 767px) {
+      .md\:grid-cols-2 { grid-template-columns: 1fr; }
+    }
+
+    /* Reduce side padding on tiny screens */
+    section { padding: 4rem 1rem; }
+    @media (min-width: 768px) { section { padding: 5rem 2rem; } }
   </style>
 </head>
 <body class="relative">
-
   <div class="animated-bg"></div>
 
   <!-- Navigation -->
