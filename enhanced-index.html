@@ -803,75 +803,81 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-content max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <div class="space-y-6">
-                    <h1 class="text-6xl md:text-8xl font-bold">
-                        <span class="gradient-text glitch" data-text="Yash Sharma">Yash Sharma</span>
-                    </h1>
-                    <div class="text-3xl md:text-4xl text-gray-300">
-                        <span id="hero-typewriter"></span>
-                        <span class="typing-indicator"></span>
-                    </div>
-                    <div class="text-xl text-gray-400">
-                        <span id="tagline-typewriter"></span>
-                    </div>
+<!-- Hero Section -->
+<section id="home" class="hero-section">
+    <div class="hero-content max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+        <!-- TEXT CONTENT (Mobile: comes after image, Desktop: comes first) -->
+        <div class="space-y-8 order-2 md:order-1">
+            <div class="space-y-6">
+                <h1 class="text-6xl md:text-8xl font-bold">
+                    <span class="gradient-text glitch" data-text="Yash Sharma">Yash Sharma</span>
+                </h1>
+                <div class="text-3xl md:text-4xl text-gray-300">
+                    <span id="hero-typewriter"></span>
+                    <span class="typing-indicator"></span>
                 </div>
-
-                <p class="text-lg text-gray-300 leading-relaxed">
-                    Passionate AI & ML Engineer specializing in Natural Language Processing and Computer Vision. 
-                    Winner of TechSaksham National Showcase 2025. Creating innovative solutions that transform 
-                    data into actionable insights.
-                </p>
-
-                <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="btn-primary">
-                        🚀 View Projects
-                    </a>
-                    <a href="#contact" class="btn-secondary">
-                        💬 Get In Touch
-                    </a>
-                </div>
-
-                <!-- Stats -->
-                <div class="grid grid-cols-3 gap-6 mt-12">
-                    <div class="text-center">
-                        <div class="stats-counter" data-target="15">0</div>
-                        <div class="text-gray-400">Projects Completed</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="stats-counter" data-target="1">0</div>
-                        <div class="text-gray-400">Awards Won</div>
-                    </div>
+                <div class="text-xl text-gray-400">
+                    <span id="tagline-typewriter"></span>
                 </div>
             </div>
 
-            <div class="flex justify-center relative">
-                <div class="hero-image">
-                    <img src="My pic2.jpg" alt="Yash Sharma" class="w-96 h-96 object-cover">
-                    <div class="hero-badge">
-                        <span>AI</span>
-                    </div>
-                </div>
+            <p class="text-lg text-gray-300 leading-relaxed">
+                Passionate AI & ML Engineer specializing in Natural Language Processing and Computer Vision.
+                Winner of TechSaksham National Showcase 2025. Creating innovative solutions that transform
+                data into actionable insights.
+            </p>
 
-                <!-- Floating Tech Icons -->
-                <div class="absolute top-0 left-0 floating" style="animation-delay: 0s;">
-                    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/08798480a2715814df9b032440a1a9cd1b1271a1.png" alt="Python" class="tech-icon w-12 h-12">
+            <!-- Buttons -->
+            <div class="flex flex-wrap gap-4">
+                <a href="#projects" class="btn-primary">
+                    🚀 View Projects
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    💬 Get In Touch
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-6 mt-12">
+                <div class="text-center">
+                    <div class="stats-counter" data-target="15">0</div>
+                    <div class="text-gray-400">Projects Completed</div>
                 </div>
-                <div class="absolute top-20 right-0 floating" style="animation-delay: 1s;">
-                    <img src="image copy 2.png" alt="AWS" class="tech-icon w-12 h-12">
-                </div>
-                <div class="absolute bottom-20 left-0 floating" style="animation-delay: 2s;">
-                    <img src="image.png" alt="Git" class="tech-icon w-12 h-12">
-                </div>
-                <div class="absolute bottom-0 right-20 floating" style="animation-delay: 3s;">
-                    <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/3cb4881612b2ecd6edc1ff4621e89f6e0e0a9f56.png" alt="Jupyter" class="tech-icon w-12 h-12">
+                <div class="text-center">
+                    <div class="stats-counter" data-target="1">0</div>
+                    <div class="text-gray-400">Awards Won</div>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- IMAGE SECTION (Mobile: shows first, Desktop: shows right side) -->
+        <div class="flex justify-center relative order-1 md:order-2">
+            <div class="hero-image">
+                <img src="My pic2.jpg" alt="Yash Sharma" class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-2xl shadow-xl">
+                <div class="hero-badge">
+                    <span>AI</span>
+                </div>
+            </div>
+
+            <!-- Floating Tech Icons -->
+            <div class="absolute top-0 left-0 floating" style="animation-delay: 0s;">
+                <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/08798480a2715814df9b032440a1a9cd1b1271a1.png" alt="Python" class="tech-icon w-12 h-12">
+            </div>
+            <div class="absolute top-20 right-0 floating" style="animation-delay: 1s;">
+                <img src="image copy 2.png" alt="AWS" class="tech-icon w-12 h-12">
+            </div>
+            <div class="absolute bottom-20 left-0 floating" style="animation-delay: 2s;">
+                <img src="image.png" alt="Git" class="tech-icon w-12 h-12">
+            </div>
+            <div class="absolute bottom-0 right-20 floating" style="animation-delay: 3s;">
+                <img src="https://kimi-web-img.moonshot.cn/img/upload.wikimedia.org/3cb4881612b2ecd6edc1ff4621e89f6e0e0a9f56.png" alt="Jupyter" class="tech-icon w-12 h-12">
+            </div>
+        </div>
+
+    </div>
+</section>
+
 
     <!-- Section Divider -->
     <div class="section-divider"></div>
