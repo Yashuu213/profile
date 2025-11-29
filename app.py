@@ -44,7 +44,7 @@ Message:
         server.starttls()
         server.login("yashsharma1247@gmail.com", "tyyr tnym qqmf lehk")  # <-- put your Gmail App Password
         server.send_message(msg)
-        server.quit()e
+        server.quit()
 
         return jsonify({"message": "Message sent successfully!"})
 
