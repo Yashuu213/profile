@@ -694,6 +694,14 @@
             0%, 100% { transform: translateX(0); }
             50% { transform: translateX(-50px); }
         }
+
+        .flex-center {
+            display: flex;
+            justify-content: center; /* horizontal center */
+            align-items: center;     /* vertical center */
+            font-size: 1.25rem;      /* adjust size of emoji if needed */
+        }
+
     </style>
 
     <!-- 2.  Responsive patch (keeps every visual identical) -->
@@ -1375,147 +1383,186 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider"></div>
+<!-- Section Divider -->
+<div class="section-divider"></div>
 
-    <!-- Contact Section -->
-    <style>
-        * { font-family: 'Inter', sans-serif; }
-        body {
-          background: linear-gradient(135deg, #0B1426 0%, #1F2937 100%);
-          color: #FFFFFF;
-          min-height: 100vh;
-        }
-        .animated-bg {
-          position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
-          background: linear-gradient(45deg, #0B1426, #1F2937, #0B1426);
-          background-size: 400% 400%;
-          animation: gradientShift 15s ease infinite;
-        }
-        @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+<!-- Contact Section -->
+<style>
+    * { font-family: 'Inter', sans-serif; }
+    body {
+      background: linear-gradient(135deg, #0B1426 0%, #1F2937 100%);
+      color: #FFFFFF;
+      min-height: 100vh;
+    }
+    .animated-bg {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+      background: linear-gradient(45deg, #0B1426, #1F2937, #0B1426);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    @keyframes gradientShift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
 
-        .gradient-text {
-          background: linear-gradient(135deg, #00D4FF, #8B5CF6);
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .glass-card {
-          background: rgba(31, 41, 55, 0.3);
-          backdrop-filter: blur(15px);
-          border: 1px solid rgba(139, 92, 246, 0.3);
-          border-radius: 20px;
-          transition: all 0.4s ease;
-        }
-        .glass-card:hover { border-color: #00D4FF; box-shadow: 0 20px 40px rgba(0,212,255,0.2); transform: translateY(-8px); }
+    .gradient-text {
+      background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .glass-card {
+      background: rgba(31, 41, 55, 0.3);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 20px;
+      transition: all 0.4s ease;
+    }
+    .glass-card:hover { border-color: #00D4FF; box-shadow: 0 20px 40px rgba(0,212,255,0.2); transform: translateY(-8px); }
 
-        .form-input {
-          background: rgba(55, 65, 81, 0.6);
-          border: 2px solid rgba(139, 92, 246, 0.3);
-          border-radius: 12px;
-          padding: 1rem;
-          width: 100%;
-          color: white;
-          transition: all 0.3s;
-        }
-        .form-input:focus {
-          outline: none;
-          border-color: #00D4FF;
-          box-shadow: 0 0 0 4px rgba(0,212,255,0.2);
-        }
-        .btn-primary {
-          background: linear-gradient(135deg, #00D4FF, #8B5CF6);
-          padding: 1rem 2.5rem;
-          border-radius: 12px;
-          font-weight: 600;
-          color: white;
-          cursor: pointer;
-          transition: all 0.3s;
-        }
-        .btn-primary:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 15px 30px rgba(0,212,255,0.4);
-        }
-        .success-message {
-          position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-          background: rgba(16,185,129,0.95); padding: 2rem 3rem; border-radius: 20px;
-          text-align: center; z-index: 9999; display: none;
-        }
-    </style>
-    <!-- Main Contact Section -->
-    <section class="pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-            <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6">Let's Connect</h1>
-            <p class="text-xl text-gray-400">Drop me a message and I'll get back to you within 24 hours!</p>
-        </div>
+    .form-input {
+      background: rgba(55, 65, 81, 0.6);
+      border: 2px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px;
+      padding: 1rem;
+      width: 100%;
+      color: white;
+      transition: all 0.3s;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: #00D4FF;
+      box-shadow: 0 0 0 4px rgba(0,212,255,0.2);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0,212,255,0.4);
+    }
+    .success-message {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(16,185,129,0.95); padding: 2rem 3rem; border-radius: 20px;
+      text-align: center; z-index: 9999; display: none;
+    }
+</style>
 
-        <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <!-- Contact Form -->
-            <div class="glass-card p-10">
-                <form id="contactForm" class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-300 mb-2">Name *</label>
-                        <input type="text" name="name" required class="form-input" placeholder="Your Name" />
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-300 mb-2">Email *</label>
-                        <input type="email" name="email" required class="form-input" placeholder="your@email.com" />
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-300 mb-2">Subject</label>
-                        <input type="text" name="subject" class="form-input" placeholder="What's this about?" />
-                    </div>
-
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-300 mb-2">Message *</label>
-                        <textarea name="message" rows="6" required class="form-input" placeholder="Tell me everything..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-primary w-full">
-                        Send Message 🚀
-                    </button>
-                </form>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="space-y-8">
-                <div class="glass-card p-8">
-                    <h3 class="text-2xl font-bold text-cyan-400 mb-6">Get in Touch</h3>
-                    <div class="space-y-6 text-gray-300">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex-center">
-                                ✉️
-                            </div>
-                            <div>
-                                <div class="font-semibold">Email</div>
-                                <a href="mailto:yashsharma.td@gmail.com" class="hover:text-cyan-400">yashsharma.td@gmail.com</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex-center">
-                                📍
-                            </div>
-                            <div>
-                                <div class="font-semibold">Location</div>
-                                Vadodara, Gujarat, India
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 text-center">
-                    <p class="text-gray-300">I usually reply within <span class="text-cyan-400 font-bold">24 hours</span> on weekdays.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Success Message -->
-    <div id="successMessage" class="success-message">
-        <h3 class="text-2xl font-bold mb-2">Message Sent Successfully! 🎉</h3>
-        <p>Thank you! I'll get back to you very soon.</p>
+<!-- Main Contact Section -->
+<section class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto text-center mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6">Let's Connect</h1>
+        <p class="text-xl text-gray-400">Drop me a message and I'll get back to you within 24 hours!</p>
     </div>
+
+    <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <!-- Contact Form -->
+        <div class="glass-card p-10">
+            <form id="contactForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Name *</label>
+                    <input type="text" name="name" required class="form-input" placeholder="Your Name" />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Subject</label>
+                    <input type="text" name="subject" class="form-input" placeholder="What's this about?" />
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Message *</label>
+                    <textarea name="message" rows="6" required class="form-input" placeholder="Tell me everything..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary w-full">
+                    Send Message 🚀
+                </button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="space-y-8">
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-cyan-400 mb-6">Get in Touch</h3>
+                <div class="space-y-6 text-gray-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex-center">
+                            ✉️
+                        </div>
+                        <div>
+                            <div class="font-semibold">Email</div>
+                            <a href="mailto:yashsharma.td@gmail.com" class="hover:text-cyan-400">yashsharma.td@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex-center">
+                            📍
+                        </div>
+
+                        <div>
+                            <div class="font-semibold">Location</div>
+                            Vadodara, Gujarat, India
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 text-center">
+                <p class="text-gray-300">I usually reply within <span class="text-cyan-400 font-bold">24 hours</span> on weekdays.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Message -->
+<div id="successMessage" class="success-message">
+    <h3 class="text-2xl font-bold mb-2">Message Sent Successfully! 🎉</h3>
+    <p>Thank you! I'll get back to you very soon.</p>
+</div>
+
+<!-- Contact Form Script -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const successBox = document.getElementById("successMessage");
+
+    const data = {
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value
+    };
+
+    try {
+        const response = await fetch("http://127.0.0.1:5000/send-message", {
+
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            successBox.style.display = "block";
+            setTimeout(() => successBox.style.display = "none", 3000);
+            form.reset();
+        } else {
+            alert("❌ Failed to send message");
+            console.log(result.error);
+        }
+
+    } catch (err) {
+        alert("❌ Network error — Backend not running?");
+        console.error(err);
+    }
+});
+</script>
+
 
     <script>
         // Initialize EmailJS (Replace with your own keys)

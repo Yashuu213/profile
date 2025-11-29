@@ -11,8 +11,10 @@
 
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<div class="section-divider"></div>
 
-  <style>
+<!-- Contact Section -->
+<style>
     * { font-family: 'Inter', sans-serif; }
     body {
       background: linear-gradient(135deg, #0B1426 0%, #1F2937 100%);
@@ -72,155 +74,128 @@
       background: rgba(16,185,129,0.95); padding: 2rem 3rem; border-radius: 20px;
       text-align: center; z-index: 9999; display: none;
     }
-
-    /* ----------  RESPONSIVE PATCH (design untouched)  ---------- */
-    * { max-width: 100%; box-sizing: border-box; }
-    img, video, canvas, iframe, svg { max-width: 100%; height: auto; display: block; }
-
-    /* Fluid type that shrinks on small screens */
-    html { font-size: 16px; }
-    @media (max-width: 1200px) { html { font-size: 15px; } }
-    @media (max-width: 900px)  { html { font-size: 14px; } }
-    @media (max-width: 600px)  { html { font-size: 13px; } }
-
-    /* Hero text scaling */
-    .text-5xl { font-size: clamp(2.2rem, 5vw + 1rem, 3.5rem); }
-    .text-7xl { font-size: clamp(2.8rem, 6vw + 1.2rem, 4.5rem); }
-    .text-xl  { font-size: clamp(1rem, 2.5vw, 1.25rem); }
-
-    /* Contact grid: single column on phones */
-    @media (max-width: 767px) {
-      .md\:grid-cols-2 { grid-template-columns: 1fr; }
+    .flex-center {
+        display: flex;
+        justify-content: center; /* horizontal center */
+        align-items: center;     /* vertical center */
+        font-size: 1.25rem;      /* adjust size of emoji if needed */
     }
 
-    /* Reduce side padding on tiny screens */
-    section { padding: 4rem 1rem; }
-    @media (min-width: 768px) { section { padding: 5rem 2rem; } }
-  </style>
-</head>
-<body class="relative">
-  <div class="animated-bg"></div>
-  
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="enhanced-index.html" class="text-2xl font-bold gradient-text glitch" data-text="YS">YS</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="enhanced-index.html" class="hover:text-cyan-400 transition-colors floating">Home</a>
-                <a href="enhanced-about.html" class="hover:text-cyan-400 transition-colors floating">About</a>
-                <a href="enhanced-projects.html" class="text-cyan-400 floating">Projects</a>
-                <a href="enhanced-contact.html" class="hover:text-cyan-400 transition-colors floating">Contact</a>
-            </div>
-        </div>
-    </nav>
+</style>
 
-  <!-- Main Contact Section -->
-  <section class="pt-32 pb-20 px-6">
+<!-- Main Contact Section -->
+<section class="pt-32 pb-20 px-6">
     <div class="max-w-4xl mx-auto text-center mb-16">
-      <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6">Let's Connect</h1>
-      <p class="text-xl text-gray-400">Drop me a message and I'll get back to you within 24 hours!</p>
+        <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6">Let's Connect</h1>
+        <p class="text-xl text-gray-400">Drop me a message and I'll get back to you within 24 hours!</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-      <!-- Contact Form -->
-      <div class="glass-card p-10">
-        <form id="contactForm" class="space-y-6">
-          <div>
-            <label class="block text-sm font-semibold text-gray-300 mb-2">Name *</label>
-            <input type="text" name="name" required class="form-input" placeholder="Your Name" />
-          </div>
+        <!-- Contact Form -->
+        <div class="glass-card p-10">
+            <form id="contactForm" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Name *</label>
+                    <input type="text" name="name" required class="form-input" placeholder="Your Name" />
+                </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-300 mb-2">Email *</label>
-            <input type="email" name="email" required class="form-input" placeholder="your@email.com" />
-          </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Subject</label>
+                    <input type="text" name="subject" class="form-input" placeholder="What's this about?" />
+                </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-300 mb-2">Subject</label>
-            <input type="text" name="subject" class="form-input" placeholder="What's this about?" />
-          </div>
+                <div>
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Message *</label>
+                    <textarea name="message" rows="6" required class="form-input" placeholder="Tell me everything..."></textarea>
+                </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-300 mb-2">Message *</label>
-            <textarea name="message" rows="6" required class="form-input" placeholder="Tell me everything..."></textarea>
-          </div>
-
-          <button type="submit" class="btn-primary w-full">
-            Send Message 🚀
-          </button>
-        </form>
-      </div>
-
-      <!-- Contact Info -->
-      <div class="space-y-8">
-        <div class="glass-card p-8">
-          <h3 class="text-2xl font-bold text-cyan-400 mb-6">Get in Touch</h3>
-          <div class="space-y-6 text-gray-300">
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex-center">
-                ✉️
-              </div>
-              <div>
-                <div class="font-semibold">Email</div>
-                <a href="mailto:yashsharma.td@gmail.com" class="hover:text-cyan-400">yashsharma.td@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex-center">
-                📞
-              </div>
-              <div>
-                <div class="font-semibold">Phone</div>
-                +91 9909723185
-              </div>
-            </div>
-
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex-center">
-                📍
-              </div>
-              <div>
-                <div class="font-semibold">Location</div>
-                Vadodara, Gujarat, India
-              </div>
-            </div>
-          </div>
+                <button type="submit" class="btn-primary w-full">
+                    Send Message 🚀
+                </button>
+            </form>
         </div>
 
-        <div class="glass-card p-8 text-center">
-          <p class="text-gray-300">I usually reply within <span class="text-cyan-400 font-bold">24 hours</span> on weekdays.</p>
+        <!-- Contact Info -->
+        <div class="space-y-8">
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold text-cyan-400 mb-6">Get in Touch</h3>
+                <div class="space-y-6 text-gray-300">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex-center">
+                            ✉️
+                        </div>
+                        <div>
+                            <div class="font-semibold">Email</div>
+                            <a href="mailto:yashsharma.td@gmail.com" class="hover:text-cyan-400">yashsharma.td@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex-center">
+                            📍
+                        </div>
+
+                        <div>
+                            <div class="font-semibold">Location</div>
+                            Vadodara, Gujarat, India
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 text-center">
+                <p class="text-gray-300">I usually reply within <span class="text-cyan-400 font-bold">24 hours</span> on weekdays.</p>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- Success Message -->
-  <div id="successMessage" class="success-message">
+<!-- Success Message -->
+<div id="successMessage" class="success-message">
     <h3 class="text-2xl font-bold mb-2">Message Sent Successfully! 🎉</h3>
     <p>Thank you! I'll get back to you very soon.</p>
-  </div>
+</div>
 
-  <script>
-    // Initialize EmailJS (Replace with your own keys)
-    emailjs.init("YOUR_PUBLIC_KEY_HERE");   // ← Get this from emailjs.com
+<!-- Contact Form Script -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+    const form = e.target;
+    const successBox = document.getElementById("successMessage");
 
-      // Send using EmailJS
-      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
-        .then(() => {
-          document.getElementById("successMessage").style.display = "block";
-          this.reset();
-          setTimeout(() => {
-            document.getElementById("successMessage").style.display = "none";
-          }, 5000);
-        }, (error) => {
-          alert("Oops! Something went wrong. Please try again.");
-          console.log(error);
+    const data = {
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value
+    };
+
+    try {
+        const response = await fetch("http://127.0.0.1:5000/send-message", {
+
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
         });
-    });
-  </script>
+
+        const result = await response.json();
+
+        if (response.ok) {
+            successBox.style.display = "block";
+            setTimeout(() => successBox.style.display = "none", 3000);
+            form.reset();
+        } else {
+            alert("❌ Failed to send message");
+            console.log(result.error);
+        }
+
+    } catch (err) {
+        alert("❌ Network error — Backend not running?");
+        console.error(err);
+    }
+});
+</script>
+
 </body>
 </html>
