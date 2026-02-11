@@ -1,0 +1,363 @@
+[
+  {
+    "id": "tuuna-ai",
+    "category": "ai",
+    "title": "Tuuna MultiSystem AI",
+    "description": "A comprehensive AI ecosystem featuring system automation, student management, and multi-model AI integration (Gemini, Groq, DeepSeek).",
+    "image": "image copy 15.png",
+    "badge": "🚀 Flagship Project",
+    "tags": [
+      "Python",
+      "React",
+      "AI Agents",
+      "System Automation"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/Tunna-multiSystem-AI"
+    },
+    "details": {
+      "fullDescription": "Tuuna is an advanced AI assistant capable of controlling system applications, managing student databases, and switching between multiple LLMs for optimal performance.",
+      "features": [
+        "Multi-LLM Support (Gemini, Groq, DeepSeek)",
+        "System Control & Automation",
+        "Student & Admin Management Portals",
+        "WhatsApp Integration"
+      ],
+      "techStack": [
+        "Python",
+        "React",
+        "Node.js",
+        "OpenCV"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "mediscope",
+    "category": "healthcare",
+    "title": "MediScope",
+    "description": "AI-driven healthcare platform for disease prediction and medical resource management.",
+    "image": "image copy 17.png",
+    "badge": "🏥 Healthcare",
+    "tags": [
+      "Machine Learning",
+      "Healthcare",
+      "Python",
+      "Data Science"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/MediScope"
+    },
+    "details": {
+      "fullDescription": "MediScope leverages machine learning algorithms to predict potential health issues based on patient data tailored for medical professionals.",
+      "features": [
+        "Disease Prediction Models",
+        "Medical Record Analysis",
+        "Resource Allocation Optimization",
+        "Secure Patient Data Handling"
+      ],
+      "techStack": [
+        "Python",
+        "Scikit-learn",
+        "Flask",
+        "React"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "govsecai",
+    "category": "ai",
+    "title": "GovSec AI",
+    "description": "Security-focused AI solution designed for government applications, enhancing data protection and threat detection.",
+    "image": "gradient-gray",
+    "badge": "🛡️ Security",
+    "tags": [
+      "Cybersecurity",
+      "AI",
+      "Python",
+      "Encryption"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/Govsecai"
+    },
+    "details": {
+      "fullDescription": "GovSec AI provides advanced threat detection and secure data processing capabilities tailored for sensitive government environments.",
+      "features": [
+        "Real-time Threat Monitoring",
+        "Automated Security Audits",
+        "Encrypted Communication Channels",
+        "Policy Compliance Checks"
+      ],
+      "techStack": [
+        "Python",
+        "Cybersecurity Libraries",
+        "AI Models"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "legal-academia",
+    "category": "web",
+    "title": "Legal Academia",
+    "description": "Educational platform for law students and professionals, offering course management and legal resources.",
+    "image": "image copy 16.png",
+    "badge": "⚖️ SaaS",
+    "tags": [
+      "React",
+      "Express",
+      "Prisma",
+      "Education"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/Legal-academia"
+    },
+    "details": {
+      "fullDescription": "A comprehensive Learning Management System (LMS) designed specifically for the legal field, facilitating online legal education.",
+      "features": [
+        "Course Management",
+        "Student Progress Tracking",
+        "Legal Resource Library",
+        "Interactive Quizzes"
+      ],
+      "techStack": [
+        "React",
+        "Node.js",
+        "Express",
+        "PostgreSQL"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "moneyviewer",
+    "category": "web",
+    "title": "MoneyViewer",
+    "description": "Personal finance management tool for tracking expenses, income, and visualizing financial habits.",
+    "image": "gradient-purple",
+    "tags": [
+      "React",
+      "Finance",
+      "Data Visualization",
+      "Chart.js"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/MoneyViewer"
+    },
+    "details": {
+      "fullDescription": "MoneyViewer helps users take control of their finances by providing intuitive dashboards to track spending and savings.",
+      "features": [
+        "Expense Tracking",
+        "Income Management",
+        "Visual Budget Reports",
+        "Savings Goals"
+      ],
+      "techStack": [
+        "React",
+        "Chart.js",
+        "Firebase"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "study-buddy",
+    "category": "ai",
+    "title": "StudyBuddy",
+    "description": "AI-powered study companion that helps students organize schedules and find resources.",
+    "image": "gradient-purple",
+    "tags": [
+      "AI",
+      "Education",
+      "Productivity",
+      "Python"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/StudyBuddy"
+    },
+    "details": {
+      "fullDescription": "StudyBuddy is an intelligent assistant for students, offering features like schedule planning, resource recommendations, and focus timers.",
+      "features": [
+        "Smart Schedule Planning",
+        "Resource Recommendation Engine",
+        "Focus Timer & Pomodoro",
+        "Task Management"
+      ],
+      "techStack": [
+        "Python",
+        "React",
+        "NLP"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "product-gen-ai",
+    "category": "ai",
+    "title": "Product Gen AI",
+    "description": "Generative AI tool for creating product descriptions, marketing copy, and visual assets.",
+    "image": "gradient-purple",
+    "tags": [
+      "Generative AI",
+      "Content Creation",
+      "Marketing",
+      "LLMs"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/ProductGenAi"
+    },
+    "details": {
+      "fullDescription": "Leverages large language models to automate the creation of marketing content and product listings for e-commerce.",
+      "features": [
+        "Automated Product Descriptions",
+        "Marketing Copy Generation",
+        "SEO Optimization",
+        "Multi-language Support"
+      ],
+      "techStack": [
+        "Python",
+        "OpenAI API",
+        "React"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "healthcare-rec",
+    "category": "healthcare",
+    "title": "Healthcare Recommendation System",
+    "description": "Recommendation engine for suggesting healthcare providers and treatments based on patient needs.",
+    "image": "image copy 15.png",
+    "tags": [
+      "Recommendation System",
+      "Healthcare",
+      "Python",
+      "ML"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/Healthcare-recommendation-system-"
+    },
+    "details": {
+      "fullDescription": "A system designed to match patients with the most suitable healthcare providers and treatment plans using collaborative filtering.",
+      "features": [
+        "Provider Matching",
+        "Treatment Suggestions",
+        "User Reviews & Ratings",
+        "Location-based Search"
+      ],
+      "techStack": [
+        "Python",
+        "Scikit-learn",
+        "Pandas"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "netflix-analysis",
+    "category": "analytics",
+    "title": "Netflix Data Analysis",
+    "description": "Comprehensive data analysis of Netflix content library, uncovering trends in genres, countries, and release years.",
+    "image": "image copy 18.png",
+    "tags": [
+      "Data Analytics",
+      "Visualization",
+      "Python",
+      "Pandas"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/Netflix-s-Data-analysis"
+    },
+    "details": {
+      "fullDescription": "An exploratory data analysis (EDA) project that visualizes insights from the Netflix dataset to understand content strategies.",
+      "features": [
+        "Genre Trend Analysis",
+        "Geographical Distribution",
+        "Content Duration Insights",
+        "Rating Analysis"
+      ],
+      "techStack": [
+        "Python",
+        "Pandas",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "antigravity-linux",
+    "category": "ai",
+    "title": "Antigravity For Linux",
+    "description": "Linux-compatible version of the Antigravity automation tool, bringing system control to open-source OS environments.",
+    "image": "gradient-gray",
+    "tags": [
+      "Linux",
+      "Automation",
+      "Python",
+      "System Administration"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/Antigravity-For-Linux"
+    },
+    "details": {
+      "fullDescription": "Extends the capabilities of the Antigravity automation suite to Linux systems, allowing for shell command automation and package management.",
+      "features": [
+        "Linux Shell Automation",
+        "Package Management Scripts",
+        "System Monitoring",
+        "Cross-platform Compatibility"
+      ],
+      "techStack": [
+        "Python",
+        "Bash",
+        "Linux APIs"
+      ],
+      "achievements": []
+    }
+  },
+  {
+    "id": "music-player",
+    "category": "web",
+    "title": "Online Music Player",
+    "description": "Web-based music streaming application with playlist management and audio visualization.",
+    "image": "gradient-purple",
+    "tags": [
+      "Web Audio API",
+      "JavaScript",
+      "Frontend",
+      "UI/UX"
+    ],
+    "links": {
+      "demo": "#",
+      "code": "https://github.com/Yashuu213/Online-Music-Player"
+    },
+    "details": {
+      "fullDescription": "A responsive web application for streaming music, creating playlists, and enjoying visualized audio experiences.",
+      "features": [
+        "Audio Streaming",
+        "Playlist Creation",
+        "Audio Visualizer",
+        "Responsive Design"
+      ],
+      "techStack": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Web Audio API"
+      ],
+      "achievements": []
+    }
+  }
+]
