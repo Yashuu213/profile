@@ -1,0 +1,274 @@
+/* 
+  YASH SHARMA: LIQUID INTELLIGENCE
+  The Masterpiece - High Energy / Physical / Generative
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Space+Grotesk:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg: #000000;
+  --accent: #ff3e00;
+  /* Liquid Flame */
+  --secondary: #7000ff;
+  /* Electric Indigo */
+  --text: #ffffff;
+  --glass: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.1);
+  --font-hero: 'Syne', sans-serif;
+  --font-main: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  cursor: none;
+  /* We'll make a custom cursor */
+}
+
+/* --- The Liquid Canvas --- */
+#p5-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* --- Custom Cursor --- */
+.cursor-follower {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease;
+}
+
+/* --- Hero --- */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  font-family: var(--font-hero);
+  font-size: clamp(3rem, 15vw, 12rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  z-index: 5;
+  pointer-events: none;
+  text-align: center;
+  width: 100%;
+}
+
+/* --- Responsive Hero --- */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column !important;
+    padding: 10% 5% !important;
+    text-align: center;
+    height: auto !important;
+    min-height: 100vh;
+  }
+
+  .hero>div {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .hero-title {
+    text-align: center !important;
+  }
+
+  .hero p {
+    text-align: center !important;
+  }
+}
+
+.splitting .char {
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+}
+
+.hero-title:hover .char {
+  transform: translateY(-20px) rotate(10deg);
+  color: var(--accent);
+}
+
+/* --- Physical Skills Container --- */
+.skills-physics {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* --- Glass Sections --- */
+.glass-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 20px;
+}
+
+.glass-card {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: 0.5s;
+}
+
+.glass-card:hover::before {
+  left: 100%;
+}
+
+.glass-card:hover {
+  border-color: var(--accent);
+  transform: scale(1.02) translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Kinetic Text --- */
+.kinetic-header {
+  font-family: var(--font-hero);
+  font-size: clamp(3rem, 8vw, 6rem);
+  margin-bottom: 2rem;
+  line-height: 1;
+}
+
+/* --- Project Grid --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.project-box {
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.project-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-box:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.project-box:hover .project-overlay {
+  opacity: 1;
+}
+
+/* --- Navigation --- */
+.liquid-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-family: var(--font-hero);
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-items {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: white;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  position: relative;
+}
+
+.nav-items a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: 0.3s;
+}
+
+.nav-items a:hover::after {
+  width: 100%;
+}
+
+/* --- Mobile --- */
+@media (max-width: 768px) {
+  .nav-items {
+    display: none;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}

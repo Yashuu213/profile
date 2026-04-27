@@ -3,26 +3,21 @@
     "id": "tuuna-ai",
     "category": "ai",
     "title": "Tuuna MultiSystem AI",
-    "description": "A comprehensive AI ecosystem featuring system automation, student management, and multi-model AI integration (Gemini, Groq, DeepSeek).",
+    "description": "An agentic AI system with real-time screen vision and OS-level automation, featuring autonomous multi-model task execution.",
     "image": "image copy 15.png",
     "badge": "🚀 Flagship Project",
-    "tags": [
-      "Python",
-      "React",
-      "AI Agents",
-      "System Automation"
-    ],
+    "tags": ["Python", "Flask", "AST", "LLMs", "Agentic AI"],
     "links": {
       "demo": "#",
       "code": "https://github.com/Yashuu213/Tunna-multiSystem-AI"
     },
     "details": {
-      "fullDescription": "Tuuna is an advanced AI assistant capable of controlling system applications, managing student databases, and switching between multiple LLMs for optimal performance.",
+      "fullDescription": "Tuuna is an advanced autonomous agent capable of cross-application control and dynamic runtime error recovery.",
       "features": [
-        "Multi-LLM Support (Gemini, Groq, DeepSeek)",
-        "System Control & Automation",
-        "Student & Admin Management Portals",
-        "WhatsApp Integration"
+        "Real-time Screen Vision & OS Automation",
+        "AST-level Code Rewriting & Error Recovery",
+        "Swappable LLM Backends (Groq, Gemini, OpenRouter)",
+        "Modular Flask Architecture with Safety Controls"
       ],
       "techStack": [
         "Python",
@@ -37,26 +32,21 @@
     "id": "mediscope",
     "category": "healthcare",
     "title": "MediScope",
-    "description": "AI-driven healthcare platform for disease prediction and medical resource management.",
+    "description": "Automated disease prediction platform using ensemble ML models and Explainable AI (XAI) for clinical diagnostics.",
     "image": "image copy 17.png",
     "badge": "🏥 Healthcare",
-    "tags": [
-      "Machine Learning",
-      "Healthcare",
-      "Python",
-      "Data Science"
-    ],
+    "tags": ["TensorFlow", "FastAPI", "SHAP", "XAI", "Diagnostics"],
     "links": {
       "demo": "#",
       "code": "https://github.com/Yashuu213/MediScope"
     },
     "details": {
-      "fullDescription": "MediScope leverages machine learning algorithms to predict potential health issues based on patient data tailored for medical professionals.",
+      "fullDescription": "MediScope predicts diseases across clinical datasets with up to 95% accuracy and provides transparent model interpretation.",
       "features": [
-        "Disease Prediction Models",
-        "Medical Record Analysis",
-        "Resource Allocation Optimization",
-        "Secure Patient Data Handling"
+        "Ensemble ML Models (95% Accuracy)",
+        "RESTful API with Sub-200ms Inference (FastAPI)",
+        "Explainable AI (XAI) using SHAP values",
+        "Multi-dataset Clinical Validation"
       ],
       "techStack": [
         "Python",
@@ -71,26 +61,21 @@
     "id": "govsecai",
     "category": "ai",
     "title": "GovSec AI",
-    "description": "Security-focused AI solution designed for government applications, enhancing data protection and threat detection.",
+    "description": "AI-powered threat analysis system using BERT for multi-label classification and real-time risk forecasting.",
     "image": "gradient-gray",
     "badge": "🛡️ Security",
-    "tags": [
-      "Cybersecurity",
-      "AI",
-      "Python",
-      "Encryption"
-    ],
+    "tags": ["NLP", "BERT", "FastAPI", "Pandas", "Cybersecurity"],
     "links": {
       "demo": "#",
       "code": "https://github.com/Yashuu213/Govsecai"
     },
     "details": {
-      "fullDescription": "GovSec AI provides advanced threat detection and secure data processing capabilities tailored for sensitive government environments.",
+      "fullDescription": "GovSecAI processes government documents to detect threats and visualize risk intelligence with 87%+ accuracy.",
       "features": [
-        "Real-time Threat Monitoring",
-        "Automated Security Audits",
-        "Encrypted Communication Channels",
-        "Policy Compliance Checks"
+        "BERT-based Multi-label Text Classification",
+        "Named Entity Recognition (NER) & Sentiment Analysis",
+        "Real-time Threat Detection Dashboard (FastAPI)",
+        "Data-driven Risk Forecasting with Matplotlib"
       ],
       "techStack": [
         "Python",
